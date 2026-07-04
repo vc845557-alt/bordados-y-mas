@@ -1,0 +1,58 @@
+CREATE DATABASE bordadosymas_db;
+USE bordadosymas_db;
+
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    telefono VARCHAR(15) NOT NULL,
+    direccion VARCHAR(150) NOT NULL,
+    correo VARCHAR(100) UNIQUE
+);
+
+CREATE TABLE productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_producto VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio_base DECIMAL(10,2) NOT NULL,
+    stock INT NOT NULL
+);
+
+CREATE TABLE disenos_bordado (
+    id_diseno INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_diseno VARCHAR(100) NOT NULL,
+    tipo_hilo VARCHAR(50) NOT NULL,
+    colores VARCHAR(100) NOT NULL,
+    tamano VARCHAR(50) NOT NULL,
+    costo_extra DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE pedidos (
+    id_pedido INT AUTO_INCREMENT PRIMARY KEY,
+    fecha_pedido DATE NOT NULL,
+    estado VARCHAR(50) NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    id_cliente INT,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+
+CREATE TABLE detalle_pedido (
+    id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+    cantidad INT NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    id_pedido INT,
+    id_producto INT,
+    id_diseno INT,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido),
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto),
+    FOREIGN KEY (id_diseno) REFERENCES disenos_bordado(id_diseno)
+);
+
+CREATE TABLE pagos (
+    id_pago INT AUTO_INCREMENT PRIMARY KEY,
+    fecha_pago DATE NOT NULL,
+    monto DECIMAL(10,2) NOT NULL,
+    metodo_pago VARCHAR(50) NOT NULL,
+    id_pedido INT,
+    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido)
+);

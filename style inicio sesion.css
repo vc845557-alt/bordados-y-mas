@@ -1,0 +1,126 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(90deg,#0b5b2a,#0d7332);
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    color:white;
+    margin-bottom:30px;
+}
+
+.icono{
+    width:36px;
+    height:36px;
+    background:rgba(255,255,255,0.2);
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-right:10px;
+}
+
+.card{
+    width:450px;
+    background:#f7f7f7;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.tabs{
+    background:#ececec;
+    border-radius:18px;
+    display:flex;
+    padding:4px;
+    margin-bottom:30px;
+}
+
+.tabs button{
+    flex:1;
+    padding:14px;
+    border:none;
+    background:transparent;
+    border-radius:15px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    color:#999;
+}
+
+.tabs .activo{
+    background:white;
+    color:#1a1a1a;
+    box-shadow:0 2px 6px rgba(0,0,0,.1);
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+}
+
+label{
+    margin-bottom:8px;
+    margin-top:15px;
+    font-size:18px;
+    font-weight:600;
+    color:#17223b;
+}
+
+label span{
+    color:#00b23f;
+}
+
+input{
+    width:100%;
+    padding:16px;
+    border:1px solid #ddd;
+    border-radius:18px;
+    background:#fafafa;
+    font-size:16px;
+    outline:none;
+}
+
+.password{
+    position:relative;
+}
+
+.password i{
+    position:absolute;
+    right:18px;
+    top:18px;
+    color:#999;
+}
+
+.btn{
+    margin-top:25px;
+    border:none;
+    padding:18px;
+    border-radius:18px;
+    background:#18a847;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#14863a;
+}
+
+.btn i{
+    margin-left:10px;
+}
